@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:healthquest/chooseCharacter/traits.dart';
 import 'package:healthquest/components.dart';
 import 'package:healthquest/style.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+int inde = 0;
 
 class CharacterPage extends StatelessWidget {
   const CharacterPage({Key? key}) : super(key: key);
@@ -33,7 +36,7 @@ class CharacterPage extends StatelessWidget {
         color: Colors.white.withOpacity(0.5),
         borderRadius: BorderRadius.circular(20),
       ),
-      child: ChooseCharacterWindow(),
+      child: const ChooseCharacterWindow(),
     );
   }
 }
@@ -50,7 +53,17 @@ class ChooseCharacterWindow extends StatelessWidget {
       children: [
         strokeText("Choose your character", Colors.black, 60),
         const ChooseCharacter(),
-        const NextBtn(name: "Next", nextPath: "/instruction"),
+        NextBtn(name: "Next", nextPath: "/traits", index: inde),
+        // ElevatedButton(
+        //   onPressed: () {
+        //     Navigator.push(
+        //         context,
+        //         MaterialPageRoute(
+        //           builder: (context) => TraitsSelection(text: inde),
+        //         ));
+        //   },
+        //   child: Text('Next'),
+        // ),
       ],
     );
   }
@@ -125,5 +138,6 @@ class _ChooseCharacterState extends State<ChooseCharacter> {
   void saveIndex() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setInt("characterIndex", _selectedIndex);
+    inde = _selectedIndex;
   }
 }

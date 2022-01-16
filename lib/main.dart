@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:healthquest/bingo/main.dart';
 import 'package:healthquest/chooseCharacter/main.dart';
+import 'package:healthquest/chooseCharacter/traits.dart';
 import 'package:healthquest/instructions/main.dart';
 import 'package:healthquest/login/home.dart';
 
@@ -14,6 +16,14 @@ void main() {
           return MaterialPageRoute(builder: (context) => Home());
         case '/character':
           return MaterialPageRoute(builder: (context) => CharacterPage());
+
+        case '/traits':
+          return MaterialPageRoute(
+              builder: (context) => TraitsSelection(
+                    text: 0,
+                  ));
+        case '/bingo':
+          return MaterialPageRoute(builder: (context) => BingoPage());
         case '/instruction':
           return MaterialPageRoute(builder: (context) => InstructionsPage());
       }
@@ -47,7 +57,7 @@ class _MyAppState extends State<MyApp> {
         decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/images/background.png"),
-                opacity: 0.5,
+                // opacity: 0.5,
                 fit: BoxFit.cover)),
         child: Image.asset('assets/images/logo.png'),
         height: double.infinity,

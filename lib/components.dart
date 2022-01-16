@@ -4,7 +4,12 @@ import 'package:healthquest/style.dart';
 class NextBtn extends StatelessWidget {
   final String name;
   final String nextPath;
-  const NextBtn({Key? key, required this.name, required this.nextPath})
+  int index;
+  NextBtn(
+      {Key? key,
+      required this.name,
+      required this.nextPath,
+      required this.index})
       : super(key: key);
 
   @override
