@@ -19,7 +19,7 @@ class _BingoPageState extends State<BingoPage> {
   Items item1 = Items(
       // title: "Drink water",
 
-      img: "assets/bingo/drink.png",
+      img: "assets/bingo/task-water.png",
       description:
           "You haven't drunk water in a long time. Why don't you pick up your bottle and take a sip? ",
       descImage:
@@ -29,67 +29,67 @@ class _BingoPageState extends State<BingoPage> {
   Items item2 = Items(
       // title: "Meditate",
 
-      img: "assets/bingo/meditate.png",
-      description: "",
-      descImage:
-          "https://i.pinimg.com/originals/46/18/92/4618922866cc60c025898bd32f769b04.jpg",
+      img: "assets/bingo/task-meditate.png",
+      description:
+          "You have been on your computer since a long time. Do you wanna medidate for a bit and then jump on to your work?",
+      descImage: "assets/bingo/medi.gif",
       route: "/meditation");
   Items item3 = Items(
       // title: "Walk around",
 
-      img: "assets/bingo/walk.png",
-      description: "",
-      descImage:
-          "https://i.pinimg.com/originals/46/18/92/4618922866cc60c025898bd32f769b04.jpg",
+      img: "assets/bingo/task-jogging.png",
+      description:
+          "Well, it's time for you to get up from your set and go out for jogging. Jogging is an excellent cardiovascular workout that boosts the health of your heart. It helps to keep heart problems and diseases at bay.",
+      descImage: "assets/bingo/jog.gif",
       route: "/bingo");
 
   Items item4 = Items(
       // title: "Read 5 pages",
 
-      img: "assets/bingo/read.png",
-      description: "",
-      descImage:
-          "https://i.pinimg.com/originals/46/18/92/4618922866cc60c025898bd32f769b04.jpg",
+      img: "assets/bingo/task-reading.png",
+      description:
+          "Reading everyday can imporve your attention span. Don't wanna read whole book in one sitting? Why not start with reading just 5 pages a day? Let's goooo. Pick your favorite book right now :)",
+      descImage: "assets/bingo/read.webp",
       route: "/bingo");
   Items item5 = Items(
       // title: "Excercise",
 
-      img: "assets/bingo/excercise.png",
-      description: "",
-      descImage:
-          "https://i.pinimg.com/originals/46/18/92/4618922866cc60c025898bd32f769b04.jpg",
+      img: "assets/bingo/task-exercise.png",
+      description:
+          "Voila! You have been doing amazing. Let's excercise for a bit.",
+      descImage: "assets/bingo/excer.gif",
       route: "/bingo");
   Items item6 = Items(
       // title: "30 mins Nap",
 
-      img: "assets/bingo/nap.png",
-      description: "",
-      descImage:
-          "https://i.pinimg.com/originals/46/18/92/4618922866cc60c025898bd32f769b04.jpg",
+      img: "assets/bingo/task-nap.png",
+      description:
+          "We all love siestas... don't we? Let's take a quick nap and realx a bit",
+      descImage: "assets/bingo/siesta.gif",
       route: "/bingo");
   Items item7 = Items(
       // title: "Draw something",
 
-      img: "assets/bingo/draw.png",
-      description: "",
-      descImage:
-          "https://i.pinimg.com/originals/46/18/92/4618922866cc60c025898bd32f769b04.jpg",
+      img: "assets/bingo/task-music.png",
+      description:
+          "It's music time. Tune in to your favorite music. Realax a bit.",
+      descImage: "assets/bingo/mus.gif",
       route: "/bingo");
   Items item8 = Items(
       // title: "Call your friend",
 
-      img: "assets/bingo/call.png",
-      description: "",
-      descImage:
-          "https://i.pinimg.com/originals/46/18/92/4618922866cc60c025898bd32f769b04.jpg",
+      img: "assets/bingo/task-call.png",
+      description:
+          "Staying in touch with your friends and family is important. It's good time to call a friend and ask them about their day.",
+      descImage: "assets/bingo/callfriend.gif",
       route: "/bingo");
   Items item9 = Items(
       // title: "Snack",
 
-      img: "assets/bingo/snack.png",
-      description: "",
-      descImage:
-          "https://i.pinimg.com/originals/46/18/92/4618922866cc60c025898bd32f769b04.jpg",
+      img: "assets/bingo/task_snack.png",
+      description:
+          "Munching while working or maybe cooking some lights snacks. Go grab something to eat.",
+      descImage: "assets/bingo/snac.gif",
       route: "/bingo");
 
   @override
@@ -157,6 +157,14 @@ class _BingoPageState extends State<BingoPage> {
     String desc = "";
     String descIm = "";
     String ro = "";
+    bool initial = false;
+    String imageLink;
+    onButtonPressed(String value) {
+      setState(() {
+        imageLink = value;
+      });
+    }
+
     return GridView.builder(
       gridDelegate:
           SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
@@ -174,7 +182,9 @@ class _BingoPageState extends State<BingoPage> {
               padding: const EdgeInsets.all(15.0),
               child: GestureDetector(
                 child: Image.network(
-                  myList[index].img,
+                  initial == false
+                      ? myList[index].img
+                      : "assets/bingo/check.png",
                   width: size.width / 30,
                 ),
                 onTap: () {
@@ -183,6 +193,7 @@ class _BingoPageState extends State<BingoPage> {
                     desc = myList[temp].description;
                     descIm = myList[temp].descImage;
                     ro = myList[temp].route;
+                    initial = true;
                   });
 
                   showDialog(
@@ -214,7 +225,41 @@ class _BingoPageState extends State<BingoPage> {
                                   ? questExercise()
                                   : temp == 1
                                       ? NextBtn(name: "Next", nextPath: ro)
-                                      : PopBtn(name: "Done")
+                                      : GestureDetector(
+                                          child: Container(
+                                            width: 150,
+                                            height: 70,
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                              color: nextBtnColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(25),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                    blurRadius: 4,
+                                                    color: Colors.black
+                                                        .withOpacity(0.25),
+                                                    offset: Offset(0, 4))
+                                              ],
+                                            ),
+                                            child: Text(
+                                              'Done',
+                                              style: GoogleFonts.roboto(
+                                                textStyle: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          onTap: () {
+                                            setState(() {
+                                              initial = true;
+                                            });
+                                            Navigator.pop(context);
+                                          },
+                                        ),
                             ],
                           ),
                         ),
@@ -255,8 +300,8 @@ class _BingoPageState extends State<BingoPage> {
           style: GoogleFonts.roboto(
             textStyle: TextStyle(
               color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w400,
+              fontSize: 32,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
@@ -293,7 +338,7 @@ class _BingoPageState extends State<BingoPage> {
 
   Image questImage(String descIm, BuildContext context) {
     return Image(
-      image: NetworkImage(
+      image: AssetImage(
         descIm,
       ),
       width: MediaQuery.of(context).size.width / 6,

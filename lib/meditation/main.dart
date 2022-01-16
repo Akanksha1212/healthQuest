@@ -100,7 +100,7 @@ class _MeditationControllerState extends State<MeditationController>
             ],
           ),
           musicController(),
-          // NextBtn(name: "Go back", nextPath: "/bingo")
+          // 2NextBtn(name: "Go back", nextPath: "/bingo")
         ],
       ),
     );
