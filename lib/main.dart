@@ -6,6 +6,7 @@ import 'package:healthquest/chooseCharacter/traits.dart';
 import 'package:healthquest/instructions/main.dart';
 import 'package:healthquest/login/home.dart';
 import 'package:healthquest/meditation/main.dart';
+import 'package:healthquest/result/result.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -29,6 +30,8 @@ void main() {
           return MaterialPageRoute(builder: (context) => InstructionsPage());
         case '/meditation':
           return MaterialPageRoute(builder: (context) => MeditationPage());
+        case '/result':
+          return MaterialPageRoute(builder: (context) => Result());
       }
     },
     debugShowCheckedModeBanner: false,

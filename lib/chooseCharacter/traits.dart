@@ -56,7 +56,7 @@ class TraitsSelection extends StatelessWidget {
                   percent: progressPercent[1] < 0.2 ? 0.2 : progressPercent[1],
                   color: Colors.greenAccent),
               ProgressBar(
-                  title: "DD",
+                  title: "Determination",
                   percent: progressPercent[2] < 0.2 ? 0.2 : progressPercent[2],
                   color: Colors.orange),
               ProgressBar(
