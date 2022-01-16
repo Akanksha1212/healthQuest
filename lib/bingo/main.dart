@@ -14,8 +14,6 @@ class _BingoPageState extends State<BingoPage> {
   Items item1 = Items(
     // title: "Drink water",
     img: "assets/bingo/water-glass.png",
-    // img:
-    //     "https://cdn-icons.flaticon.com/png/512/2447/premium/2447764.png?token=exp=1642312056~hmac=efd42c07021aecf5b2015ab00abb3103"
   );
 
   Items item2 = Items(
@@ -115,20 +113,29 @@ class _BingoPageState extends State<BingoPage> {
       itemCount: 9,
       itemBuilder: (_, index) => Transform.rotate(
         angle: index % 2 == 0 ? -5 * math.pi / 180 : 5 * math.pi / 180,
-        child: Container(
-          padding: EdgeInsets.all(10.0),
-          child: Material(
-            elevation: 4.0,
-            borderRadius: BorderRadius.circular(20.0),
-            color: index % 2 == 0 ? Color(0xffdffaff) : Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Image.network(
-                myList[index].img,
-                width: size.width / 30,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Container(
+              padding: EdgeInsets.all(10.0),
+              child: Material(
+                elevation: 4.0,
+                borderRadius: BorderRadius.circular(20.0),
+                color: index % 2 == 0 ? Color(0xffdffaff) : Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Image.network(
+                    myList[index].img,
+                    width: size.width / 30,
+                  ),
+                ),
               ),
             ),
-          ),
+            // Image.asset(
+            //   "assets/images/checkmark.png",
+            //   width: 50,
+            // ),
+          ],
         ),
       ),
     );

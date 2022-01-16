@@ -52,16 +52,6 @@ class ChooseCharacterWindow extends StatelessWidget {
         strokeText("Choose your character", Colors.black, 60),
         const ChooseCharacter(),
         NextBtn(name: "Next", nextPath: "/traits"),
-        // ElevatedButton(
-        //   onPressed: () {
-        //     Navigator.push(
-        //         context,
-        //         MaterialPageRoute(
-        //           builder: (context) => TraitsSelection(text: inde),
-        //         ));
-        //   },
-        //   child: Text('Next'),
-        // ),
       ],
     );
   }

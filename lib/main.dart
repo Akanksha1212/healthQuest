@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(MaterialApp(
+    title: 'HealthQuest',
     initialRoute: '/',
     onGenerateRoute: (settings) {
       switch (settings.name) {
@@ -35,7 +36,7 @@ void main() {
 
 class MyApp extends StatefulWidget {
   @override
-  _MyAppState createState() => new _MyAppState();
+  _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -57,10 +58,10 @@ class _MyAppState extends State<MyApp> {
         constraints: BoxConstraints.expand(),
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/background.png"),
+                image: AssetImage("assets/images/logoBackground.png"),
                 // opacity: 0.5,
                 fit: BoxFit.cover)),
-        child: Image.asset('assets/images/logo.png'),
+        // child: Image.asset('assets/images/logo.png'),
         height: double.infinity,
       ),
     );
