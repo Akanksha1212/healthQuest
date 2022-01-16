@@ -4,8 +4,6 @@ import 'package:healthquest/components.dart';
 import 'package:healthquest/style.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-int inde = 0;
-
 class CharacterPage extends StatelessWidget {
   const CharacterPage({Key? key}) : super(key: key);
 
@@ -53,7 +51,7 @@ class ChooseCharacterWindow extends StatelessWidget {
       children: [
         strokeText("Choose your character", Colors.black, 60),
         const ChooseCharacter(),
-        NextBtn(name: "Next", nextPath: "/traits", index: inde),
+        NextBtn(name: "Next", nextPath: "/traits"),
         // ElevatedButton(
         //   onPressed: () {
         //     Navigator.push(
@@ -138,6 +136,5 @@ class _ChooseCharacterState extends State<ChooseCharacter> {
   void saveIndex() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setInt("characterIndex", _selectedIndex);
-    inde = _selectedIndex;
   }
 }

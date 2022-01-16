@@ -91,51 +91,47 @@ class _BingoPageState extends State<BingoPage> {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            strokeText("Self Care Bingo", Colors.black, 60),
+            strokeText("Self Care Bingo", Colors.black, 40),
             Flexible(
               child: Container(
-                height: size.width * 0.7,
-                width: size.height * 0.7,
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3),
-                  scrollDirection: Axis.vertical,
-                  itemCount: 9,
-                  itemBuilder: (_, index) => Transform.rotate(
-                    angle:
-                        index % 2 == 0 ? -5 * math.pi / 180 : 5 * math.pi / 180,
-                    child: Container(
-                      decoration: BoxDecoration(),
-                      padding: EdgeInsets.all(10.0),
-                      child: Material(
-                        elevation: 4.0,
-                        borderRadius: BorderRadius.circular(20.0),
-                        color:
-                            index % 2 == 0 ? Color(0xffdffaff) : Colors.white,
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: Image.network(
-                                  myList[index].img,
-                                  width: size.width / 15,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                alignment: Alignment.center,
+                height: size.height * 0.6,
+                width: size.width * 0.3,
+                child: gridviewTasks(myList, size),
               ),
             ),
           ],
         ));
+  }
+
+  GridView gridviewTasks(List<Items> myList, Size size) {
+    return GridView.builder(
+      gridDelegate:
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+      scrollDirection: Axis.vertical,
+      itemCount: 9,
+      itemBuilder: (_, index) => Transform.rotate(
+        angle: index % 2 == 0 ? -5 * math.pi / 180 : 5 * math.pi / 180,
+        child: Container(
+          padding: EdgeInsets.all(10.0),
+          child: Material(
+            elevation: 4.0,
+            borderRadius: BorderRadius.circular(20.0),
+            color: index % 2 == 0 ? Color(0xffdffaff) : Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Image.network(
+                myList[index].img,
+                width: size.width / 30,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 

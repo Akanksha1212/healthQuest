@@ -6,8 +6,8 @@ Color nextBtnColor = Color(0xFFFFA697);
 Color white = Colors.white;
 
 // TextStyles
-TextStyle fontRoboto(size, color, weight) {
-  return GoogleFonts.roboto(fontSize: size, color: color, fontWeight: weight);
+TextStyle fontRoboto(size, color) {
+  return GoogleFonts.roboto(fontSize: size, color: color);
 }
 
 TextStyle strokeTextStyle(Color color, double fontSize) {
@@ -25,7 +25,7 @@ Stack strokeText(String text, Color color, double fontSize) {
   return Stack(
     children: [
       Text(text, style: strokeTextStyle(color, fontSize)),
-      Text(text, style: fontRoboto(fontSize, color, FontWeight.normal)),
+      Text(text, style: fontRoboto(fontSize, color)),
     ],
   );
 }
