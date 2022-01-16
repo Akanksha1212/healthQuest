@@ -48,8 +48,8 @@ class _MyAppState extends State<MyApp> {
     Future.delayed(
       Duration(seconds: 4),
       // () => Navigator.pushReplacementNamed(context, '/meditation'),
+      // () => Navigator.pushReplacementNamed(context, '/bingo'),
       () => Navigator.pushReplacementNamed(context, '/home'),
-      // () => Navigator.pushReplacementNamed(context, '/home'),
     );
   }
 
