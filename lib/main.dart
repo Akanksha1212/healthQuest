@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:healthquest/screens/home.dart';
+import 'package:healthquest/chooseCharacter/main.dart';
+import 'package:healthquest/instructions/main.dart';
+import 'package:healthquest/login/home.dart';
 
 void main() {
   runApp(MaterialApp(
+    initialRoute: '/',
+    onGenerateRoute: (settings) {
+      switch (settings.name) {
+        case '/':
+          return MaterialPageRoute(builder: (context) => MyApp());
+        case '/home':
+          return MaterialPageRoute(builder: (context) => Home());
+        case '/character':
+          return MaterialPageRoute(builder: (context) => CharacterPage());
+        case '/instruction':
+          return MaterialPageRoute(builder: (context) => InstructionsPage());
+      }
+    },
     debugShowCheckedModeBanner: false,
     home: MyApp(),
   ));
@@ -19,14 +34,8 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     Future.delayed(
       Duration(seconds: 4),
-      () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => Home(),
-          ),
-        );
-      },
+      () => Navigator.pushReplacementNamed(context, '/character'),
+      // () => Navigator.pushReplacementNamed(context, '/home'),
     );
   }
 
@@ -34,19 +43,15 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          constraints: BoxConstraints.expand(),
-          decoration: BoxDecoration(
-              image:
-                  DecorationImage(image: NetworkImage(""), fit: BoxFit.cover)),
-          child: Center(
-              child: Column(
-            children: [
-              SizedBox(
-                height: 300,
-              ),
-              Image.asset(''),
-            ],
-          ))),
+        constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/images/background.png"),
+                opacity: 0.5,
+                fit: BoxFit.cover)),
+        child: Image.asset('assets/images/logo.png'),
+        height: double.infinity,
+      ),
     );
   }
 }
