@@ -22,8 +22,7 @@ class _BingoPageState extends State<BingoPage> {
       img: "assets/bingo/task-water.png",
       description:
           "You haven't drunk water in a long time. Why don't you pick up your bottle and take a sip? ",
-      descImage:
-          "https://media4.giphy.com/media/WvSDwj9IPbHkuAMKuV/giphy.gif?cid=6c09b952v2m4zmisk5g50hk69xqfhbz1bs4p8o36xu6g6u8r&rid=giphy.gif&ct=s",
+      descImage: "assets/bingo/water.webp",
       route: "/bingo");
 
   Items item2 = Items(
@@ -40,7 +39,7 @@ class _BingoPageState extends State<BingoPage> {
       img: "assets/bingo/task-jogging.png",
       description:
           "Well, it's time for you to get up from your set and go out for jogging. Jogging is an excellent cardiovascular workout that boosts the health of your heart. It helps to keep heart problems and diseases at bay.",
-      descImage: "assets/bingo/jog.gif",
+      descImage: "assets/bingo/joggg.gif",
       route: "/bingo");
 
   Items item4 = Items(
