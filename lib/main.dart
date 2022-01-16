@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthquest/bingo/main.dart';
+import 'package:healthquest/bingo/pose.dart';
 import 'package:healthquest/chooseCharacter/main.dart';
 import 'package:healthquest/chooseCharacter/traits.dart';
 import 'package:healthquest/instructions/main.dart';
@@ -14,9 +15,11 @@ void main() {
           return MaterialPageRoute(builder: (context) => MyApp());
         case '/home':
           return MaterialPageRoute(builder: (context) => Home());
+
         case '/character':
           return MaterialPageRoute(builder: (context) => CharacterPage());
-
+        case '/pose':
+          return MaterialPageRoute(builder: (context) => PoseDetection());
         case '/traits':
           return MaterialPageRoute(
               builder: (context) => TraitsSelection(
