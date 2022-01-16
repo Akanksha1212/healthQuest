@@ -6,7 +6,6 @@ import 'package:healthquest/chooseCharacter/traits.dart';
 import 'package:healthquest/instructions/main.dart';
 import 'package:healthquest/login/home.dart';
 import 'package:healthquest/meditation/main.dart';
-import 'package:provider/provider.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -18,7 +17,6 @@ void main() {
           return MaterialPageRoute(builder: (context) => MyApp());
         case '/home':
           return MaterialPageRoute(builder: (context) => Home());
-
         case '/character':
           return MaterialPageRoute(builder: (context) => CharacterPage());
         case '/pose':
@@ -50,7 +48,7 @@ class _MyAppState extends State<MyApp> {
     Future.delayed(
       Duration(seconds: 4),
       // () => Navigator.pushReplacementNamed(context, '/meditation'),
-      () => Navigator.pushReplacementNamed(context, '/character'),
+      () => Navigator.pushReplacementNamed(context, '/home'),
       // () => Navigator.pushReplacementNamed(context, '/home'),
     );
   }
