@@ -12,49 +12,44 @@ class BingoPage extends StatefulWidget {
 
 class _BingoPageState extends State<BingoPage> {
   Items item1 = Items(
-      title: "Drink water",
-      // img: "assets/bingo/water-glass.png",
-      img:
-          "https://cdn-icons.flaticon.com/png/512/2447/premium/2447764.png?token=exp=1642312056~hmac=efd42c07021aecf5b2015ab00abb3103");
+    // title: "Drink water",
+    img: "assets/bingo/water-glass.png",
+    // img:
+    //     "https://cdn-icons.flaticon.com/png/512/2447/premium/2447764.png?token=exp=1642312056~hmac=efd42c07021aecf5b2015ab00abb3103"
+  );
 
   Items item2 = Items(
-    title: "Meditate",
-    img:
-        "https://cdn-icons.flaticon.com/png/512/3546/premium/3546642.png?token=exp=1642311788~hmac=c027d7886aefaa352fab10bb7849ecd1",
+    // title: "Meditate",
+    img: "assets/bingo/meditate.png",
   );
   Items item3 = Items(
-    title: "Walk around",
-    img:
-        "https://cdn-icons.flaticon.com/png/512/2000/premium/2000197.png?token=exp=1642311763~hmac=cd71e6c2860769597e05cf319e45db6d",
+    // title: "Walk around",
+    img: "assets/bingo/walk.png",
   );
 
   Items item4 = Items(
-    title: "Read 5 pages",
-    img:
-        "https://cdn-icons.flaticon.com/png/512/4212/premium/4212485.png?token=exp=1642311846~hmac=27e3ef4c4a1cdba672450db0b7dc2cf6",
+    // title: "Read 5 pages",
+    img: "assets/bingo/read.png",
   );
   Items item5 = Items(
-    title: "Excercise",
-    img:
-        "https://cdn-icons.flaticon.com/png/512/3065/premium/3065868.png?token=exp=1642312271~hmac=be051c4c1ee55357f2c981f901fca46d",
+    // title: "Excercise",
+    img: "assets/bingo/excercise.png",
   );
   Items item6 = Items(
-    title: "30 mins Nap",
-    img: "https://cdn-icons-png.flaticon.com/512/2737/2737529.png",
+    // title: "30 mins Nap",
+    img: "assets/bingo/nap.png",
   );
   Items item7 = Items(
-    title: "Draw something",
-    img: "https://cdn-icons-png.flaticon.com/512/3199/3199937.png",
+    // title: "Draw something",
+    img: "assets/bingo/water-glass.png",
   );
   Items item8 = Items(
-    title: "Call your friend",
-    img:
-        "https://cdn-icons.flaticon.com/png/512/2593/premium/2593518.png?token=exp=1642312001~hmac=267cf4057ddeb5dead60cdf8836f2ae5",
+    // title: "Call your friend",
+    img: "assets/bingo/call.png",
   );
   Items item9 = Items(
-    title: "Snack",
-    img:
-        "https://cdn-icons.flaticon.com/png/512/2681/premium/2681610.png?token=exp=1642312031~hmac=3cbd733135175f22117fcbd9848a5f86",
+    // title: "Snack",
+    img: "assets/bingo/snack.png",
   );
 
   @override
@@ -124,23 +119,11 @@ class _BingoPageState extends State<BingoPage> {
                           child: Column(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Text(
-                                  myList[index].title,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w600),
+                                padding: const EdgeInsets.all(15.0),
+                                child: Image.network(
+                                  myList[index].img,
+                                  width: size.width / 15,
                                 ),
-                              ),
-                              // Image.asset(
-                              //   myList[index].img,
-                              //   width: 50,
-                              // ),
-                              Image.network(
-                                myList[index].img,
-                                width: size.width / 20,
                               )
                             ],
                           ),
@@ -157,8 +140,8 @@ class _BingoPageState extends State<BingoPage> {
 }
 
 class Items {
-  String title;
+  // String title;
   String img;
 
-  Items({required this.title, required this.img});
+  Items({required this.img});
 }
