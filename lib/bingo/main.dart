@@ -6,7 +6,7 @@ import 'package:healthquest/components.dart';
 import 'package:healthquest/style.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-const String _url = 'https://flutter.dev';
+const String _url = 'https://pj14r.csb.app/';
 
 class BingoPage extends StatefulWidget {
   const BingoPage({Key? key}) : super(key: key);
@@ -24,7 +24,7 @@ class _BingoPageState extends State<BingoPage> {
           "You haven't drunk water in a long time. Why don't you pick up your bottle and take a sip? ",
       descImage:
           "https://media4.giphy.com/media/WvSDwj9IPbHkuAMKuV/giphy.gif?cid=6c09b952v2m4zmisk5g50hk69xqfhbz1bs4p8o36xu6g6u8r&rid=giphy.gif&ct=s",
-      route: "");
+      route: "/bingo");
 
   Items item2 = Items(
       // title: "Meditate",
@@ -33,7 +33,7 @@ class _BingoPageState extends State<BingoPage> {
       description: "",
       descImage:
           "https://i.pinimg.com/originals/46/18/92/4618922866cc60c025898bd32f769b04.jpg",
-      route: "");
+      route: "/meditation");
   Items item3 = Items(
       // title: "Walk around",
 
@@ -41,7 +41,7 @@ class _BingoPageState extends State<BingoPage> {
       description: "",
       descImage:
           "https://i.pinimg.com/originals/46/18/92/4618922866cc60c025898bd32f769b04.jpg",
-      route: "");
+      route: "/bingo");
 
   Items item4 = Items(
       // title: "Read 5 pages",
@@ -50,7 +50,7 @@ class _BingoPageState extends State<BingoPage> {
       description: "",
       descImage:
           "https://i.pinimg.com/originals/46/18/92/4618922866cc60c025898bd32f769b04.jpg",
-      route: "");
+      route: "/bingo");
   Items item5 = Items(
       // title: "Excercise",
 
@@ -58,7 +58,7 @@ class _BingoPageState extends State<BingoPage> {
       description: "",
       descImage:
           "https://i.pinimg.com/originals/46/18/92/4618922866cc60c025898bd32f769b04.jpg",
-      route: "/pose");
+      route: "/bingo");
   Items item6 = Items(
       // title: "30 mins Nap",
 
@@ -66,7 +66,7 @@ class _BingoPageState extends State<BingoPage> {
       description: "",
       descImage:
           "https://i.pinimg.com/originals/46/18/92/4618922866cc60c025898bd32f769b04.jpg",
-      route: "");
+      route: "/bingo");
   Items item7 = Items(
       // title: "Draw something",
 
@@ -74,7 +74,7 @@ class _BingoPageState extends State<BingoPage> {
       description: "",
       descImage:
           "https://i.pinimg.com/originals/46/18/92/4618922866cc60c025898bd32f769b04.jpg",
-      route: "");
+      route: "/bingo");
   Items item8 = Items(
       // title: "Call your friend",
 
@@ -82,7 +82,7 @@ class _BingoPageState extends State<BingoPage> {
       description: "",
       descImage:
           "https://i.pinimg.com/originals/46/18/92/4618922866cc60c025898bd32f769b04.jpg",
-      route: "");
+      route: "/bingo");
   Items item9 = Items(
       // title: "Snack",
 
@@ -90,7 +90,7 @@ class _BingoPageState extends State<BingoPage> {
       description: "",
       descImage:
           "https://i.pinimg.com/originals/46/18/92/4618922866cc60c025898bd32f769b04.jpg",
-      route: "");
+      route: "/bingo");
 
   @override
   Widget build(BuildContext context) {
@@ -135,146 +135,150 @@ class _BingoPageState extends State<BingoPage> {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          strokeText("Self Care Bingo", Colors.black, 60),
+          strokeText("Self Care Bingo", Colors.black, 40),
           Flexible(
             child: Container(
-              height: size.width * 0.7,
-              width: size.height * 0.7,
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3),
-                scrollDirection: Axis.vertical,
-                itemCount: 9,
-                itemBuilder: (_, index) => Transform.rotate(
-                  angle:
-                      index % 2 == 0 ? -5 * math.pi / 180 : 5 * math.pi / 180,
-                  child: Material(
-                    elevation: 4.0,
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: index % 2 == 0 ? Color(0xffdffaff) : Colors.white,
-                    child: Center(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: GestureDetector(
-                              child: Image.network(
-                                myList[index].img,
-                                width: size.width / 15,
-                              ),
-                              onTap: () {
-                                setState(() {
-                                  temp = index;
-                                  print(temp);
-                                  desc = myList[temp].description;
-                                  descIm = myList[temp].descImage;
-                                  ro = myList[temp].route;
-                                });
-                                showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return AlertDialog(
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(20.0))),
-                                      backgroundColor: Color(0xff98b18b),
-                                      content: Container(
-                                        height: 650,
-                                        width: 800,
-                                        child: Column(
-                                          children: [
-                                            Text(
-                                              'Quest#$temp',
-                                              style:
-                                                  GoogleFonts.playfairDisplay(
-                                                textStyle: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 32,
-                                                  fontWeight: FontWeight.w400,
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 10,
-                                            ),
-                                            Text(
-                                              '$desc',
-                                              style: GoogleFonts.roboto(
-                                                textStyle: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w400,
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 20,
-                                            ),
-                                            Image(
-                                              image: NetworkImage(
-                                                descIm,
-                                              ),
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width /
-                                                  6,
-                                            ),
-                                            SizedBox(
-                                              height: 20,
-                                            ),
-                                            Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width /
-                                                  2,
-                                              height: 60,
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(8.0),
-                                                child: RaisedButton(
-                                                  elevation: 5,
-                                                  color: Color(0xff263284),
-                                                  child: Text(
-                                                    'Next',
-                                                    style: GoogleFonts
-                                                        .playfairDisplay(
-                                                      textStyle: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 20,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  onPressed: _launchURL,
-                                                ),
-                                              ),
-                                            ),
-                                            // NextBtn(
-                                            //     name: 'Done',
-                                            //     nextPath: ro,
-                                            //     index: 0)
-                                          ],
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                );
-                              },
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              alignment: Alignment.center,
+              height: size.height * 0.6,
+              width: size.width * 0.3,
+              child: gridviewTasks(myList, size),
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  GridView gridviewTasks(List<Items> myList, Size size) {
+    int temp = 0;
+    String desc = "";
+    String descIm = "";
+    String ro = "";
+    return GridView.builder(
+      gridDelegate:
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+      scrollDirection: Axis.vertical,
+      itemCount: 9,
+      itemBuilder: (_, index) => Transform.rotate(
+        angle: index % 2 == 0 ? -5 * math.pi / 180 : 5 * math.pi / 180,
+        child: Container(
+          padding: EdgeInsets.all(10.0),
+          child: Material(
+            elevation: 4.0,
+            borderRadius: BorderRadius.circular(20.0),
+            color: index % 2 == 0 ? Color(0xffdffaff) : Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: GestureDetector(
+                child: Image.network(
+                  myList[index].img,
+                  width: size.width / 30,
+                ),
+                onTap: () {
+                  setState(() {
+                    temp = index;
+
+                    desc = myList[temp].description;
+                    descIm = myList[temp].descImage;
+                    ro = myList[temp].route;
+                  });
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20.0))),
+                        backgroundColor: Color(0xff98b18b),
+                        content: Container(
+                          height: 650,
+                          width: 800,
+                          child: Column(
+                            children: [
+                              Text(
+                                'Quest#$temp',
+                                style: GoogleFonts.playfairDisplay(
+                                  textStyle: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 32,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                '$desc',
+                                style: GoogleFonts.roboto(
+                                  textStyle: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Image(
+                                image: NetworkImage(
+                                  descIm,
+                                ),
+                                width: MediaQuery.of(context).size.width / 6,
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              temp == 4
+                                  ? GestureDetector(
+                                      child: Container(
+                                        width: 150,
+                                        height: 70,
+                                        alignment: Alignment.center,
+                                        decoration: BoxDecoration(
+                                          color: nextBtnColor,
+                                          borderRadius:
+                                              BorderRadius.circular(25),
+                                          boxShadow: [
+                                            BoxShadow(
+                                                blurRadius: 4,
+                                                color: Colors.black
+                                                    .withOpacity(0.25),
+                                                offset: Offset(0, 4))
+                                          ],
+                                        ),
+                                        child: Text(
+                                          'Next',
+                                          style: GoogleFonts.roboto(
+                                            textStyle: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      onTap: _launchURL,
+                                    )
+                                  : temp == 1
+                                      ? NextBtn(name: "Next", nextPath: ro)
+                                      : PopButtn(name: "Done")
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
