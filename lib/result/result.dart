@@ -40,7 +40,7 @@ class Result extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              'You completed all your tasks today. Great job!',
+              'You completed 7/9 tasks today. Great job!',
               style: GoogleFonts.playfairDisplay(
                 textStyle: TextStyle(
                   color: Colors.black,

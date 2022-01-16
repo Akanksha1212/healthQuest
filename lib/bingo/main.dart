@@ -202,6 +202,8 @@ class _BingoPageState extends State<BingoPage> {
           alignment: Alignment.center,
           children: [
             Container(
+              height: size.width / 9,
+              width: size.width / 9,
               padding: EdgeInsets.all(10.0),
               child: Material(
                 elevation: 4.0,
@@ -234,7 +236,8 @@ class _BingoPageState extends State<BingoPage> {
             ),
             myList[index].completed
                 ? Image.asset(
-                    "assets/bingo/check.png",width: 110,
+                    "assets/bingo/check.png",
+                    width: 110,
                   )
                 : Container(),
           ],
