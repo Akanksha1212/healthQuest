@@ -146,6 +146,7 @@ class _BingoPageState extends State<BingoPage> {
               child: gridviewTasks(myList, size),
             ),
           ),
+          NextBtn(name: "Result", nextPath: "/result")
         ],
       ),
     );
