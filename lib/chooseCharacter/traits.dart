@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-
+import 'dart:math';
 import 'package:healthquest/components.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class TraitsSelection extends StatelessWidget {
-  const TraitsSelection({Key? key}) : super(key: key);
-
+  TraitsSelection({Key? key}) : super(key: key);
+  List<double> progressPercent = [
+    Random().nextDouble(),
+    Random().nextDouble(),
+    Random().nextDouble(),
+    Random().nextDouble(),
+  ];
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -43,12 +48,21 @@ class TraitsSelection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ProgressBar(
-                  title: "Focus", percent: 0.7, color: Colors.orangeAccent),
+                  title: "Focus",
+                  percent: progressPercent[0] < 0.2 ? 0.2 : progressPercent[0],
+                  color: Colors.orangeAccent),
               ProgressBar(
-                  title: "Curiousity", percent: 0.7, color: Colors.greenAccent),
-              ProgressBar(title: "DD", percent: 0.7, color: Colors.orange),
+                  title: "Curiousity",
+                  percent: progressPercent[1] < 0.2 ? 0.2 : progressPercent[1],
+                  color: Colors.greenAccent),
               ProgressBar(
-                  title: "Energy", percent: 0.7, color: Colors.purpleAccent),
+                  title: "DD",
+                  percent: progressPercent[2] < 0.2 ? 0.2 : progressPercent[2],
+                  color: Colors.orange),
+              ProgressBar(
+                  title: "Energy",
+                  percent: progressPercent[3] < 0.2 ? 0.2 : progressPercent[3],
+                  color: Colors.purpleAccent),
               NextBtn(name: "Next", nextPath: "/bingo"),
             ],
           )

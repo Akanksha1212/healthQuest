@@ -31,12 +31,12 @@ class NextBtn extends StatelessWidget {
   }
 }
 
-class ProgressBar extends StatelessWidget {
+class ProgressBar extends StatefulWidget {
   final Color color;
   final String title;
   final double percent;
 
-  const ProgressBar(
+  ProgressBar(
       {Key? key,
       required this.title,
       required this.percent,
@@ -44,12 +44,29 @@ class ProgressBar extends StatelessWidget {
       : super(key: key);
 
   @override
+  State<ProgressBar> createState() => _ProgressBarState();
+}
+
+class _ProgressBarState extends State<ProgressBar> {
+  late bool isActive;
+  @override
+  void initState() {
+    super.initState();
+    isActive = false;
+    Future.delayed(Duration(milliseconds: 500), () {
+      setState(() {
+        isActive = true;
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         SizedBox(
           width: 100,
-          child: Text(title, style: fontRoboto(18.0, Colors.black)),
+          child: Text(widget.title, style: fontRoboto(18.0, Colors.black)),
         ),
         Container(
           width: 200,
@@ -60,17 +77,45 @@ class ProgressBar extends StatelessWidget {
             borderRadius: BorderRadius.circular(25),
           ),
           child: AnimatedContainer(
-            duration: Duration(milliseconds: 500),
+            duration: Duration(milliseconds: 2000),
             curve: Curves.easeInOut,
-            width: percent * 200,
+            width: isActive ? widget.percent * 200 : 0,
             height: 40,
             decoration: BoxDecoration(
-              color: color,
+              color: widget.color,
               borderRadius: BorderRadius.circular(25),
             ),
           ),
         ),
       ],
     );
+  }
+}
+
+class PopBtn extends StatelessWidget {
+  final String name;
+  PopBtn({Key? key, required this.name}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+        onTap: () {
+          Navigator.pop(context);
+        },
+        child: Container(
+            width: 150,
+            height: 70,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: nextBtnColor,
+              borderRadius: BorderRadius.circular(25),
+              boxShadow: [
+                BoxShadow(
+                    blurRadius: 4,
+                    color: Colors.black.withOpacity(0.25),
+                    offset: Offset(0, 4))
+              ],
+            ),
+            child: strokeText(name, white, 36)));
   }
 }
